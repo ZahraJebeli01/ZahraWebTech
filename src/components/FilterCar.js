@@ -10,7 +10,7 @@ function FilterCar(props) {
     >
       <span className="">Show </span>
       <span>{props.name}</span>
-      <span className="visually-hidden"> tasks</span>
+      <span className="visually-hidden"> cars</span>
     </button>
   );
 }
