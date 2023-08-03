@@ -49,12 +49,12 @@ function AddCar(props) {
           className="btn todo-cancel"
           onClick={() => setEditing(false)}
         >
-          Cancel
-          <span className="visually-hidden">renaming {props.name}</span>
+          Cancel 
+          <span className="visually-hidden"> renaming {props.name}</span>
         </button>
         <button type="submit" className="btn btn__primary todo-edit">
           Save
-          <span className="visually-hidden">new name for {props.name}</span>
+          <span className="visually-hidden"> new name for {props.name}</span>
         </button>
       </div>
     </form>
@@ -62,6 +62,12 @@ function AddCar(props) {
   const viewTemplate = (
     <div className="stack-small">
       <div>
+      <input
+          id={props.id}
+          type="checkbox"
+          defaultChecked={props.completed}
+          onChange={() => props.toggleTaskCompleted(props.id)}
+        />
         <label className="todo-label" htmlFor={props.id}>
           {props.name}
         </label>
@@ -87,14 +93,14 @@ function AddCar(props) {
     </div>
   );
 
-  //   useEffect(() => {
-  //     if (!wasEditing && isEditing) {
-  //       editFieldRef.current.focus();
-  //     }
-  //     if (wasEditing && !isEditing) {
-  //       editButtonRef.current.focus();
-  //     }
-  //   }, [wasEditing, isEditing]);
+    useEffect(() => {
+      if (!wasEditing && isEditing) {
+        editFieldRef.current.focus();
+      }
+      if (wasEditing && !isEditing) {
+        editButtonRef.current.focus();
+      }
+    }, [wasEditing, isEditing]);
 
   return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>;
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function ShowCars() {
   const [appState, setAppState] = useState({
-    loading: false,
+    loading: true,
     cars: null,
   });
 
@@ -17,7 +17,7 @@ function ShowCars() {
       .then((response) => {
         const apiData = response.data.slice(0,5);
         console.log(apiData);
-        setAppState({ loading: false, cars: apiData} ) ;
+        setAppState({ loading: true, cars: apiData} ) ;
         
       });
     }, [setAppState]);

@@ -10,7 +10,7 @@ function CarsAPI() {
 
   useEffect( () => {
     setAppState({ loading: true });
-    const apiUrl = 'https://parallelum.com.br/fipe/api/v1/carros/marcas';
+    const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
     // const axios = require('axios');    
     axios.get(apiUrl)

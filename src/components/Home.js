@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormAddCar from "./FormAddCar";
 import FilterCar from "./FilterCar";
 import AddCar from "./AddCar";
@@ -16,8 +16,8 @@ function Home(props) {
   const [cars, setCars] = useState([]);
   const [filter, setFilter] = useState("All");
 
-  function addCar(carName) {
-    const newCar = { id: nanoid(), carName };
+  function addCar(name) {
+    const newCar = { id: nanoid(), name };
     setCars([...cars, newCar]);
   }
 
@@ -35,6 +35,19 @@ function Home(props) {
     });
     setCars(editedCarList);
   };
+
+  function toggleTaskCompleted(id) {
+    const updatedCars = cars.map((car) => {
+      // if this car has the same ID as the edited car
+      if (id === car.id) {
+        // use object spread to make a new object
+        // whose `completed` prop has been inverted
+        return { ...car, gas: !car.gas };
+      }
+      return car;
+    });
+    setCars(updatedCars);
+  }
 
   const carList = cars
     .filter(FILTER_MAP[filter])
@@ -57,6 +70,19 @@ function Home(props) {
       setFilter={setFilter}
     />
   ));
+
+  useEffect(() => {
+  
+    const data = localStorage.getItem('listOfCars');
+    if (data) {
+    setCars(JSON.parse(data));
+    }
+    }, []);
+ 
+    useEffect(() => {
+     localStorage.setItem('listOfCars', JSON.stringify(cars));
+    },[cars]
+    );
 
   return (
     <div>
