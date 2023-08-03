@@ -12,14 +12,16 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
+
 function Home(props) {
   const [cars, setCars] = useState([]);
   const [filter, setFilter] = useState("All");
 
   function addCar(name) {
-    const newCar = { id: nanoid(), name };
+    const newCar = { id: nanoid(), name, gas:true };
     setCars([...cars, newCar]);
   }
+
 
   function deleteCar(id) {
     const remainingCars = cars.filter((car) => id !== car.id);
@@ -36,7 +38,7 @@ function Home(props) {
     setCars(editedCarList);
   };
 
-  function toggleTaskCompleted(id) {
+  function toggleCarElectric(id) {
     const updatedCars = cars.map((car) => {
       // if this car has the same ID as the edited car
       if (id === car.id) {
@@ -57,10 +59,12 @@ function Home(props) {
         name={car.name}
         gas={car.gas}
         key={car.id}
+        toggleCarElectric = {toggleCarElectric}
         deleteCar={deleteCar}
         editCar={editCar}
       />
     ));
+
 
   const filterCarList = FILTER_NAMES.map((name) => (
     <FilterCar

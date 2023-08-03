@@ -66,7 +66,7 @@ function AddCar(props) {
           id={props.id}
           type="checkbox"
           defaultChecked={props.completed}
-          onChange={() => props.toggleTaskCompleted(props.id)}
+          onChange={() => props.toggleCarElectric(props.id)}
         />
         <label className="todo-label" htmlFor={props.id}>
           {props.name}
