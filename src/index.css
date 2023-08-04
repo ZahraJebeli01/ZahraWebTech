@@ -1,17 +1,4 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-*/
 
 
 /* General styles for the page */
@@ -145,4 +132,51 @@ code {
 
 .c-cb>input[type="checkbox"]:checked+label::after {
   opacity: 1;
+}
+
+/* ShowCars.css */
+
+/* Center the component in the middle of the page */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1; /* Light gray background */
+}
+
+/* Styling for the blue table */
+.table-container {
+  background-color: #3498db; /* Blue background color */
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the car list */
+.car-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.car-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  color: #fff; /* Text color for car names and IDs */
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Styling for the car name */
+.car-name {
+  flex: 1;
+  margin-right: 16px;
+}
+
+/* Styling for the car id */
+.car-id {
+  flex: 0.5;
 }

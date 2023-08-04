@@ -2,18 +2,18 @@ import React from 'react';
 import Car from './Car'
 
 const Cars = (props) => {
-  const { Cars, isLoading } = props;
+  const { cars, isLoading } = props;
   
-  if (!Cars || Cars.length === 0) {
+  if (!cars || cars.length === 0) {
     return <p>No Cars available.</p>;
   }
   
   return (
-    <div className="container">
-        <h2 className='list-head'>Cars</h2>
-        {!isLoading && Cars.map((Car) => {
+    <div >
+        <h2 > Cars </h2>
+        {!isLoading && cars.map((car) => {
             return (
-              <Car key={Car.id} Car={Car}/>
+              <Car key={car.codigo} car={car}/>
             );
         })
         }
